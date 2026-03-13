@@ -1,9 +1,9 @@
 class Product:
     def __init__(self, name:str, price:float, quantity:int):
         if name == "":
-            raise AttributeError("Product name cannot be empty")
+            raise ValueError("Product name cannot be empty")
         if price < 0:
-            raise AttributeError("Product price cannot be negative")
+            raise ValueError("Product price cannot be negative")
 
         self.name = name
         self.price = price
