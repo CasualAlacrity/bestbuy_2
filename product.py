@@ -1,4 +1,4 @@
-from promotions import Promotion, PercentDiscount, ThirdOneFree, SecondHalfPrice
+from promotions import Promotion, PercentDiscountPromotion, ThirdOneFreePromotion, SecondHalfPricePromotion
 
 
 class Product:
@@ -48,17 +48,25 @@ class Product:
         self.set_quantity(self.get_quantity() - quantity)
 
         final_prince = self.price
+        discounted_items = 0
 
         # Check for promotions
         if len(self._promotions) > 0:
             for promo in self._promotions:
                 match promo:
-                    case PercentDiscount():
-                        final_prince *= promo.percent_discount
-                    case ThirdOneFree() if quantity >= 3:
-                        pass
-                    case SecondHalfPrice():
-                        pass
+                    case PercentDiscountPromotion():
+                        final_prince -= self.price *  (promo.percent_discount / 100)
+                    case ThirdOneFreePromotion() if quantity >= 3:
+                        discounted_items = quantity // 3
+                        quantity -= discounted_items
+                    case SecondHalfPricePromotion() if quantity >= 2:
+                        # number of pairs
+                        pairs = quantity // 2
+                        pair_price = self.price * 1.5
+
+                        # Any remaining full price items
+                        full_price_items = quantity % 2
+                        return (pairs * pair_price) + (full_price_items * self.price)
 
         return float(final_prince * quantity)
 

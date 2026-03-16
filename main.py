@@ -1,5 +1,5 @@
 from product import Product, NonStockedProduct, LimitedProduct
-from promotions import SecondHalfPrice, ThirdOneFree, PercentDiscount
+from promotions import SecondHalfPricePromotion, ThirdOneFreePromotion, PercentDiscountPromotion
 from store import Store
 
 # setup initial stock of inventory
@@ -11,9 +11,9 @@ product_list = [ Product("MacBook Air M2", price=1450, quantity=100),
                ]
 
 # Create promotion catalog
-second_half_price = SecondHalfPrice("Second Half price!")
-third_one_free = ThirdOneFree("Third One Free!")
-thirty_percent = PercentDiscount("30% off!", percent=30)
+second_half_price = SecondHalfPricePromotion("Second Half price!")
+third_one_free = ThirdOneFreePromotion("Third One Free!")
+thirty_percent = PercentDiscountPromotion("30% off!", percent=30)
 
 # Add promotions to products
 product_list[0].set_promotion(second_half_price)
