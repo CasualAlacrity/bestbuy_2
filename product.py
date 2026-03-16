@@ -43,3 +43,32 @@ class Product:
 
         self.set_quantity(self.get_quantity() - quantity)
         return float(self.price * quantity)
+
+
+class NonStockedProduct(Product):
+    def __init__(self, name: str, price: float, quantity: int):
+        super().__init__(name, price, quantity)
+
+    def show(self):
+        print(self.name, "Price:", self.price, "Quantity: Unlimited")
+
+    def set_quantity(self, quantity:int):
+        super().quantity = 0
+
+    def buy(self, quantity) -> float:
+        return float(self.price * quantity)
+
+
+class LimitedProduct(Product):
+    def __init__(self, name: str, price: float, quantity: int, maximum:int):
+        super().__init__(name, price, quantity)
+        self.maximum = maximum
+
+    def show(self):
+        print(self.name, "Price:", self.price, "Quantity:", self.quantity, "Maximum:", self.maximum, " (Per Order)")
+
+    def buy(self, quantity) -> float:
+        if self.get_quantity() > self.maximum:
+            raise ValueError("Can't order more than the maximum quantity. ", quantity)
+
+        return super().buy(quantity)
