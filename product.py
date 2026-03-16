@@ -1,3 +1,6 @@
+from promotions import Promotion, PercentDiscount, ThirdOneFree, SecondHalfPrice
+
+
 class Product:
     def __init__(self, name:str, price:float, quantity:int):
         if name == "":
@@ -8,6 +11,7 @@ class Product:
         self.name = name
         self.price = price
         self.set_quantity(quantity)
+        self._promotions:list[Promotion] = []
 
     def get_quantity(self) -> int:
         return self.quantity
@@ -42,8 +46,24 @@ class Product:
             raise ValueError("Not enough items in stock.")
 
         self.set_quantity(self.get_quantity() - quantity)
-        return float(self.price * quantity)
 
+        final_prince = self.price
+
+        # Check for promotions
+        if len(self._promotions) > 0:
+            for promo in self._promotions:
+                match promo:
+                    case PercentDiscount():
+                        final_prince *= promo.percent_discount
+                    case ThirdOneFree() if quantity >= 3:
+                        pass
+                    case SecondHalfPrice():
+                        pass
+
+        return float(final_prince * quantity)
+
+    def set_promotion(self, promotion:Promotion):
+        self._promotions.append(promotion)
 
 class NonStockedProduct(Product):
     def __init__(self, name: str, price: float, quantity: int):
