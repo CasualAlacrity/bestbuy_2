@@ -85,3 +85,13 @@ def test_buy_2_get_1_promotion():
     product.set_promotion(promotion)
     price = product.buy(7)
     assert price == 500
+
+# Test Combo promos
+def test_combo_promotion():
+    product = Product("test", 100, 10)
+    first_promotion = ThirdOneFreePromotion("Third One Free!")
+    second_promotion = PercentDiscountPromotion("30% off!", percent=30)
+    product.set_promotion(first_promotion)
+    product.set_promotion(second_promotion)
+    price = product.buy(3)
+    assert price == 140

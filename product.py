@@ -47,28 +47,26 @@ class Product:
 
         self.set_quantity(self.get_quantity() - quantity)
 
-        final_prince = self.price
-        discounted_items = 0
+        total_discount = 0
+        quantity_discount = 0
 
         # Check for promotions
         if len(self._promotions) > 0:
             for promo in self._promotions:
                 match promo:
                     case PercentDiscountPromotion():
-                        final_prince -= self.price *  (promo.percent_discount / 100)
+                        total_discount += self.price * promo.percent_discount * quantity
+
                     case ThirdOneFreePromotion() if quantity >= 3:
-                        discounted_items = quantity // 3
-                        quantity -= discounted_items
+                        quantity_discount = quantity // 3
+
                     case SecondHalfPricePromotion() if quantity >= 2:
-                        # number of pairs
                         pairs = quantity // 2
-                        pair_price = self.price * 1.5
+                        total_discount += pairs * (self.price * 0.5)
 
-                        # Any remaining full price items
-                        full_price_items = quantity % 2
-                        return (pairs * pair_price) + (full_price_items * self.price)
-
-        return float(final_prince * quantity)
+        # I think there should be a way to have this "price * quantity - promo_discount"
+        # At least then you could also report directly on the discount as a Tuple
+        return (self.price * (quantity - quantity_discount)) - total_discount
 
     def set_promotion(self, promotion:Promotion):
         self._promotions.append(promotion)
