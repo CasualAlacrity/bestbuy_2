@@ -14,7 +14,7 @@ class Product:
 
     def set_quantity(self, quantity:int):
         if (quantity < 0):
-            raise AttributeError("Product quantity cannot be negative")
+            raise ValueError("Product quantity cannot be negative")
 
         self.quantity = quantity
 
@@ -38,5 +38,8 @@ class Product:
         print(self.name, "Price:", self.price, "Quantity:", self.quantity)
 
     def buy(self, quantity) -> float:
+        if (self.get_quantity() < quantity):
+            raise ValueError("Not enough items in stock.")
+
         self.set_quantity(self.get_quantity() - quantity)
         return float(self.price * quantity)
