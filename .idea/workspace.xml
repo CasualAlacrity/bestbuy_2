@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="I did some clean up. Much happier with this cleaner version">
+    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Bonus str. Fixed some errors">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/store.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotions.py" beforeDir="false" afterPath="$PROJECT_DIR$/promotions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +194,7 @@
       <updated>1773409778199</updated>
       <workItem from="1773409779268" duration="3573000" />
       <workItem from="1773651995307" duration="3251000" />
-      <workItem from="1773666754254" duration="10186000" />
+      <workItem from="1773666754254" duration="10879000" />
     </task>
     <task id="LOCAL-00001" summary="Brought files over from other project.&#10;Started template test file">
       <option name="closed" value="true" />
@@ -259,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773736792130</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Bonus str. Fixed some errors">
+      <option name="closed" value="true" />
+      <created>1773737266346</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773737266346</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,10 +294,11 @@
     <MESSAGE value="Finished first implementation of promotions and tests." />
     <MESSAGE value="Cleaned up the promo logic a bit, added combo promo stacking test" />
     <MESSAGE value="I did some clean up. Much happier with this cleaner version" />
-    <option name="LAST_COMMIT_MESSAGE" value="I did some clean up. Much happier with this cleaner version" />
+    <MESSAGE value="Bonus str. Fixed some errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bonus str. Fixed some errors" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773737038933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BestBuy_2_0$main.coverage" NAME="main Coverage Results" MODIFIED="1773737215701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BestBuy_2_0$main.coverage" NAME="main Coverage Results" MODIFIED="1773737604943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

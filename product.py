@@ -38,9 +38,17 @@ class Product:
         self.active = False
 
     def __str__(self)-> str:
-        # "MacBook Air M2, Price: 1450, Quantity: 100"
-        # I checked, and it seems that this function was not intended to return a value. Weird.
-        return (f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}")
+
+
+        return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}\nPromotions:{self._get_promotion_str()}"
+
+    def _get_promotion_str(self)->str:
+        if self._promotions:
+            promotions_str = ", ".join(str(promo) for promo in self._promotions)
+        else:
+            promotions_str = "None"
+
+        return promotions_str
 
     def buy(self, quantity) -> float:
         if quantity <= 0:
@@ -66,7 +74,7 @@ class NonStockedProduct(Product):
         super().__init__(name, price, quantity)
 
     def __str__(self)-> str:
-        return f"{self.name}, Price: ${self.price}, Quantity: Unlimited"
+        return f"{self.name}, Price: ${self.price}, Quantity: Unlimited\nPromotions:{self._get_promotion_str()}"
 
     def set_quantity(self, quantity:int):
         self.quantity = 0
@@ -88,7 +96,7 @@ class LimitedProduct(Product):
         self.maximum = maximum
 
     def __str__(self)-> str:
-        return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)"
+        return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)\nPromotions:{self._get_promotion_str()}"
 
     def buy(self, quantity) -> float:
         if quantity > self.maximum:

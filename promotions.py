@@ -5,6 +5,9 @@ class Promotion(ABC):
     def __init__(self, promotion_title:str):
         self.__promotion_title = promotion_title
 
+    def __str__(self)-> str:
+        return f"{self.__promotion_title}"
+
     @abstractmethod
     def apply_promotion(self, current_total:float, price:float, quantity:int) -> float:
         pass
