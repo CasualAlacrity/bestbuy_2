@@ -12,6 +12,7 @@ class Product:
         self.price = price
         self.quantity = quantity
         self._promotions:list[Promotion] = []
+        self.active = True
 
     def get_quantity(self) -> int:
         return self.quantity
@@ -36,10 +37,10 @@ class Product:
     def deactivate(self):
         self.active = False
 
-    def show(self):
+    def __str__(self)-> str:
         # "MacBook Air M2, Price: 1450, Quantity: 100"
         # I checked, and it seems that this function was not intended to return a value. Weird.
-        print(f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}")
+        return (f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity) -> float:
         if quantity <= 0:
@@ -61,11 +62,11 @@ class Product:
         self._promotions.append(promotion)
 
 class NonStockedProduct(Product):
-    def __init__(self, name: str, price: float, quantity: int):
+    def __init__(self, name: str, price: float, quantity: int = 0):
         super().__init__(name, price, quantity)
 
-    def show(self):
-        print(f"{self.name}, Price: ${self.price}, Quantity: Unlimited")
+    def __str__(self)-> str:
+        return f"{self.name}, Price: ${self.price}, Quantity: Unlimited"
 
     def set_quantity(self, quantity:int):
         self.quantity = 0
@@ -86,8 +87,8 @@ class LimitedProduct(Product):
         super().__init__(name, price, quantity)
         self.maximum = maximum
 
-    def show(self):
-        print(f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)")
+    def __str__(self)-> str:
+        return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)"
 
     def buy(self, quantity) -> float:
         if quantity > self.maximum:

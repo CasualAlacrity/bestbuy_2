@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Cleaned up the promo logic a bit, added combo promo stacking test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="I did some clean up. Much happier with this cleaner version">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotions.py" beforeDir="false" afterPath="$PROJECT_DIR$/promotions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/store.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     "Python tests.Python tests for tests.test_product.test_create_product.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_empty_name.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_percent_off_promo.executor": "Run",
+    "Python.main.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -72,7 +73,31 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_product.test_combo_promotion">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BestBuy 2.0" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.test_product.test_bogo_promotion" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BestBuy 2.0" />
       <option name="ENV_FILES" value="" />
@@ -141,30 +166,13 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.test_product.test_percent_off_promo" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="BestBuy 2.0" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_product.test_percent_off_promo&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_combo_promotion" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_bogo_promotion_multi" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_bogo_promotion" />
-        <item itemvalue="Python tests.Python tests for tests.test_product.test_percent_off_promo" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +193,7 @@
       <updated>1773409778199</updated>
       <workItem from="1773409779268" duration="3573000" />
       <workItem from="1773651995307" duration="3251000" />
-      <workItem from="1773666754254" duration="9701000" />
+      <workItem from="1773666754254" duration="10186000" />
     </task>
     <task id="LOCAL-00001" summary="Brought files over from other project.&#10;Started template test file">
       <option name="closed" value="true" />
@@ -243,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773681165176</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="I did some clean up. Much happier with this cleaner version">
+      <option name="closed" value="true" />
+      <created>1773736792130</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1773736792130</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,9 +284,11 @@
     <MESSAGE value="Added promotions placeholder code" />
     <MESSAGE value="Finished first implementation of promotions and tests." />
     <MESSAGE value="Cleaned up the promo logic a bit, added combo promo stacking test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the promo logic a bit, added combo promo stacking test" />
+    <MESSAGE value="I did some clean up. Much happier with this cleaner version" />
+    <option name="LAST_COMMIT_MESSAGE" value="I did some clean up. Much happier with this cleaner version" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773735880720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773737038933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BestBuy_2_0$main.coverage" NAME="main Coverage Results" MODIFIED="1773737215701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

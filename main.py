@@ -20,6 +20,8 @@ product_list[0].set_promotion(second_half_price)
 product_list[1].set_promotion(third_one_free)
 product_list[3].set_promotion(thirty_percent)
 
+best_buy = Store(product_list)
+
 
 
 def start(store: Store):
@@ -38,8 +40,8 @@ def start(store: Store):
 
 def display_products(store: Store):
     print("-----")
-    for i, product in enumerate(store.get_all_products(), start=1):
-        print(f"{i}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}")
+    for product in store.get_all_products():
+        print(product)
     print("-----")
 
 def make_order(store:Store):

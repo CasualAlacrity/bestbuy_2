@@ -1,6 +1,6 @@
 from typing import List
 
-from products import Product
+from product import Product
 
 class Store:
     def __init__(self, products:List[Product]):
