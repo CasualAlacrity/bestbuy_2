@@ -36,7 +36,7 @@ def start(store: Store):
         if option == 3:
             make_order(store)
         if option == 4:
-            False
+            return
 
 def display_products(store: Store):
     print("-----")
