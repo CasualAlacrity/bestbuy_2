@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Added promotions placeholder code">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Cleaned up the promo logic a bit, added combo promo stacking test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/promotions.py" beforeDir="false" afterPath="$PROJECT_DIR$/promotions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,7 @@
     "Python tests.Python tests for tests.test_product.test_bogo_promotion.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_bogo_promotion_multi.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion.executor": "Run",
+    "Python tests.Python tests for tests.test_product.test_combo_promotion.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_create_product.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_empty_name.executor": "Run",
     "Python tests.Python tests for tests.test_product.test_percent_off_promo.executor": "Run",
@@ -72,7 +72,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_product.test_combo_promotion">
     <configuration name="Python tests for tests.test_product.test_bogo_promotion" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BestBuy 2.0" />
       <option name="ENV_FILES" value="" />
@@ -124,7 +124,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.test_product.test_empty_name" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_product.test_combo_promotion" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BestBuy 2.0" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,7 +137,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_product.test_empty_name&quot;" />
+      <option name="_new_target" value="&quot;tests.test_product.test_combo_promotion&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -160,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for tests.test_product.test_combo_promotion" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_bogo_promotion_multi" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_bogo_promotion" />
         <item itemvalue="Python tests.Python tests for tests.test_product.test_percent_off_promo" />
-        <item itemvalue="Python tests.Python tests for tests.test_product.test_empty_name" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +185,7 @@
       <updated>1773409778199</updated>
       <workItem from="1773409779268" duration="3573000" />
       <workItem from="1773651995307" duration="3251000" />
-      <workItem from="1773666754254" duration="5048000" />
+      <workItem from="1773666754254" duration="9701000" />
     </task>
     <task id="LOCAL-00001" summary="Brought files over from other project.&#10;Started template test file">
       <option name="closed" value="true" />
@@ -227,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773669014187</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished first implementation of promotions and tests.">
+      <option name="closed" value="true" />
+      <created>1773679622275</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773679622275</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Cleaned up the promo logic a bit, added combo promo stacking test">
+      <option name="closed" value="true" />
+      <created>1773681165176</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773681165176</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,20 +266,11 @@
     <MESSAGE value="Finished the test error handling. It's currently throwing errors, which I don't love." />
     <MESSAGE value="Added Limited and Unlimited product types" />
     <MESSAGE value="Added promotions placeholder code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added promotions placeholder code" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/product.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Finished first implementation of promotions and tests." />
+    <MESSAGE value="Cleaned up the promo logic a bit, added combo promo stacking test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the promo logic a bit, added combo promo stacking test" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773679482482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773735880720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

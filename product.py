@@ -10,19 +10,19 @@ class Product:
 
         self.name = name
         self.price = price
-        self.set_quantity(quantity)
+        self.quantity = quantity
         self._promotions:list[Promotion] = []
 
     def get_quantity(self) -> int:
         return self.quantity
 
     def set_quantity(self, quantity:int):
-        if (quantity < 0):
+        if self.get_quantity() < 0:
             raise ValueError("Product quantity cannot be negative")
 
         self.quantity = quantity
 
-        if(self.quantity > 0):
+        if self.get_quantity() > 0:
             self.activate()
         else:
             self.deactivate()
@@ -39,34 +39,23 @@ class Product:
     def show(self):
         # "MacBook Air M2, Price: 1450, Quantity: 100"
         # I checked, and it seems that this function was not intended to return a value. Weird.
-        print(self.name, "Price:", self.price, "Quantity:", self.quantity)
+        print(f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity) -> float:
-        if (self.get_quantity() < quantity):
+        if quantity <= 0:
+            raise ValueError("Quantity must be greater than zero.")
+
+        if self.get_quantity() < quantity:
             raise ValueError("Not enough items in stock.")
 
         self.set_quantity(self.get_quantity() - quantity)
 
-        total_discount = 0
-        quantity_discount = 0
+        final_price = self.price * quantity
 
-        # Check for promotions
-        if len(self._promotions) > 0:
-            for promo in self._promotions:
-                match promo:
-                    case PercentDiscountPromotion():
-                        total_discount += self.price * promo.percent_discount * quantity
+        for promo in self._promotions:
+            final_price = promo.apply_promotion(final_price, self.price, quantity)
 
-                    case ThirdOneFreePromotion() if quantity >= 3:
-                        quantity_discount = quantity // 3
-
-                    case SecondHalfPricePromotion() if quantity >= 2:
-                        pairs = quantity // 2
-                        total_discount += pairs * (self.price * 0.5)
-
-        # I think there should be a way to have this "price * quantity - promo_discount"
-        # At least then you could also report directly on the discount as a Tuple
-        return (self.price * (quantity - quantity_discount)) - total_discount
+        return round(final_price, 2)
 
     def set_promotion(self, promotion:Promotion):
         self._promotions.append(promotion)
@@ -76,13 +65,20 @@ class NonStockedProduct(Product):
         super().__init__(name, price, quantity)
 
     def show(self):
-        print(self.name, "Price:", self.price, "Quantity: Unlimited")
+        print(f"{self.name}, Price: ${self.price}, Quantity: Unlimited")
 
     def set_quantity(self, quantity:int):
-        super().quantity = 0
+        self.quantity = 0
+        self.activate()
 
     def buy(self, quantity) -> float:
-        return float(self.price * quantity)
+        # I don't call super here because quantity checks caused issues
+        final_price = self.price * quantity
+
+        for promo in self._promotions:
+            final_price = promo.apply_promotion(final_price, self.price, quantity)
+
+        return round(final_price, 2)
 
 
 class LimitedProduct(Product):
@@ -91,10 +87,10 @@ class LimitedProduct(Product):
         self.maximum = maximum
 
     def show(self):
-        print(self.name, "Price:", self.price, "Quantity:", self.quantity, "Maximum:", self.maximum, " (Per Order)")
+        print(f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)")
 
     def buy(self, quantity) -> float:
-        if self.get_quantity() > self.maximum:
+        if quantity > self.maximum:
             raise ValueError("Can't order more than the maximum quantity. ", quantity)
 
         return super().buy(quantity)
