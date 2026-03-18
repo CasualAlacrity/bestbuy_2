@@ -1,8 +1,8 @@
-from promotions import Promotion, PercentDiscountPromotion, ThirdOneFreePromotion, SecondHalfPricePromotion
+from promotions import Promotion
 
 
 class Product:
-    def __init__(self, name:str, price:float, quantity:int):
+    def __init__(self, name: str, price: float, quantity: int):
         if name == "":
             raise ValueError("Product name cannot be empty")
         if price < 0:
@@ -10,22 +10,19 @@ class Product:
 
         self.name = name
         self.price = price
-        self.quantity = quantity
-        self._promotions:list[Promotion] = []
         self.active = True
+        self._promotions: list[Promotion] = []
+        self.set_quantity(quantity)
 
     def get_quantity(self) -> int:
         return self.quantity
 
-    def set_quantity(self, quantity:int):
-        if self.get_quantity() < 0:
+    def set_quantity(self, quantity: int):
+        if quantity < 0:
             raise ValueError("Product quantity cannot be negative")
 
         self.quantity = quantity
-
-        if self.get_quantity() > 0:
-            self.activate()
-        else:
+        if self.quantity == 0:
             self.deactivate()
 
     def is_active(self) -> bool:
@@ -37,12 +34,11 @@ class Product:
     def deactivate(self):
         self.active = False
 
-    def __str__(self)-> str:
-
+    def __str__(self) -> str:
 
         return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}\nPromotions:{self._get_promotion_str()}"
 
-    def _get_promotion_str(self)->str:
+    def _get_promotion_str(self) -> str:
         if self._promotions:
             promotions_str = ", ".join(str(promo) for promo in self._promotions)
         else:
@@ -66,17 +62,18 @@ class Product:
 
         return round(final_price, 2)
 
-    def set_promotion(self, promotion:Promotion):
+    def set_promotion(self, promotion: Promotion):
         self._promotions.append(promotion)
+
 
 class NonStockedProduct(Product):
     def __init__(self, name: str, price: float, quantity: int = 0):
         super().__init__(name, price, quantity)
 
-    def __str__(self)-> str:
+    def __str__(self) -> str:
         return f"{self.name}, Price: ${self.price}, Quantity: Unlimited\nPromotions:{self._get_promotion_str()}"
 
-    def set_quantity(self, quantity:int):
+    def set_quantity(self, quantity: int):
         self.quantity = 0
         self.activate()
 
@@ -91,15 +88,18 @@ class NonStockedProduct(Product):
 
 
 class LimitedProduct(Product):
-    def __init__(self, name: str, price: float, quantity: int, maximum:int):
+    def __init__(self, name: str, price: float, quantity: int, maximum: int):
         super().__init__(name, price, quantity)
         self.maximum = maximum
 
-    def __str__(self)-> str:
+    def __str__(self) -> str:
         return f"{self.name}, Price: ${self.price}, Quantity: {self.quantity}, Maximum: {self.maximum} (Per Order)\nPromotions:{self._get_promotion_str()}"
 
     def buy(self, quantity) -> float:
         if quantity > self.maximum:
-            raise ValueError("Can't order more than the maximum quantity. ", quantity)
+            raise ValueError(f"Can't order more than {self.maximum} items.")
+
+        if quantity <= 0:
+            raise ValueError("Quantity must be greater than zero.")
 
         return super().buy(quantity)

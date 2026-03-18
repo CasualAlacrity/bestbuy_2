@@ -2,25 +2,27 @@ from typing import List
 
 from product import Product
 
-class Store:
-    def __init__(self, products:List[Product]):
-        self.products = products
 
-    def add_product(self, product:Product):
-        if type(product) is not Product:
-            raise TypeError
+class Store:
+    def __init__(self, products: List[Product]):
+        self.products = list(products)
+
+    def add_product(self, product: Product):
+        if not isinstance(product, Product):
+            raise TypeError("Only Product objects can be added.")
 
         self.products.append(product)
 
-    def remove_product(self, product:Product):
-        if type(product) is not Product:
-            raise TypeError
+    def remove_product(self, product: Product):
+        if not isinstance(product, Product):
+            raise TypeError("Only Product objects can be added.")
+
         self.products.remove(product)
 
     def get_total_quantity(self) -> int:
         total = 0
         for product in self.products:
-            total += product.quantity
+            total += product.get_quantity()
 
         return total
 

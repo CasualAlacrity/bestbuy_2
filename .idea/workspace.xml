@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Bonus str. Fixed some errors">
+    <list default="true" id="ef2f852e-4a1f-49e0-a6c6-ae281115c5e8" name="Changes" comment="Added __str__ support and included promotions in the output">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/promotions.py" beforeDir="false" afterPath="$PROJECT_DIR$/promotions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/store.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="10" />
+    <option name="cachedIndexableFilesCount" value="11" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -26,8 +28,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CasualAlacrity&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CasualAlacrity/bestbuy_2.git&quot;,
+    &quot;accountId&quot;: &quot;2c7618e0-4291-4910-9c21-fcf09bf0e68b&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -40,35 +59,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.test_product.test_bogo_promotion.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_bogo_promotion_multi.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_combo_promotion.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_create_product.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_empty_name.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_percent_off_promo.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_bogo_promotion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_bogo_promotion_multi.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_buy_2_get_1_promotion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_combo_promotion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_create_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_empty_name.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_percent_off_promo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -194,7 +213,9 @@
       <updated>1773409778199</updated>
       <workItem from="1773409779268" duration="3573000" />
       <workItem from="1773651995307" duration="3251000" />
-      <workItem from="1773666754254" duration="10879000" />
+      <workItem from="1773666754254" duration="11229000" />
+      <workItem from="1773824673804" duration="17000" />
+      <workItem from="1773826713810" duration="1514000" />
     </task>
     <task id="LOCAL-00001" summary="Brought files over from other project.&#10;Started template test file">
       <option name="closed" value="true" />
@@ -268,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773737266346</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed an exit issue">
+      <option name="closed" value="true" />
+      <created>1773737961462</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1773737961462</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added __str__ support and included promotions in the output">
+      <option name="closed" value="true" />
+      <created>1773737982159</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773737982159</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +316,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -295,7 +344,9 @@
     <MESSAGE value="Cleaned up the promo logic a bit, added combo promo stacking test" />
     <MESSAGE value="I did some clean up. Much happier with this cleaner version" />
     <MESSAGE value="Bonus str. Fixed some errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bonus str. Fixed some errors" />
+    <MESSAGE value="Fixed an exit issue" />
+    <MESSAGE value="Added __str__ support and included promotions in the output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added __str__ support and included promotions in the output" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BestBuy_2_0$.coverage" NAME=" Coverage Results" MODIFIED="1773737038933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
